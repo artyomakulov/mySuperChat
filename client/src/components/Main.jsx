@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/Main.module.css";
+import { Link } from "react-router-dom";
+
+const FIELDS = {
+  NAME: "name",
+  ROOM: "room",
+};
 
 const Main = () => {
+  const { NAME, ROOM } = FIELDS;
+  const [values, setVelues] = useState({ [NAME]: "", [ROOM]: "" });
+
+  const handleChange = ({ target: { value, name } }) => {
+    setVelues({ ...values, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    // const isDisabled = Object.values(values).some(value => !value)
+    // console.log('isDisabled', isDisabled)
+    // if(isDisabled) e.preventDefault()
+  };
+  // console.log('values', values)
+
   return (
     <div className={styles.wrap}>
       <div className={styles.container}>
@@ -10,12 +30,40 @@ const Main = () => {
           <div className={styles.group}>
             <input
               type="text"
-              name="username"
-              value=""
+              name="name"
+              placeholder="call your nickname"
+              value={values[NAME]}
               className={styles.input}
-              onChange={() => {}}
+              onChange={handleChange}
+              autoComplete="off"
+              required
             />
           </div>
+          <div className={styles.group}>
+            <input
+              type="text"
+              name="room"
+              placeholder="your chat room"
+              value={values[ROOM]}
+              className={styles.input}
+              onChange={handleChange}
+              autoComplete="off"
+              required
+            />
+          </div>
+          <Link
+            className={styles.group}
+            onClick={handleSubmit}
+            to={`/chat?name=${values[NAME]}$room=${values[ROOM]}`}
+          >
+            <button
+              type="submit"
+              className={styles.button}
+              disabled={values[NAME] === "" || values[ROOM] === ""}
+            >
+              Sign in
+            </button>
+          </Link>
         </form>
       </div>
     </div>
