@@ -68,7 +68,15 @@
 
 .button {
   text-align: center;
+  padding: 10px;
+  transition: 0.3s
 }
+
+.button:hover,
+.button:focus {
+  transform: scale(1.1)
+}
+
 
 .button input {
   cursor: pointer;
