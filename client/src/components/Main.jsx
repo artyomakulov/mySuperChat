@@ -54,7 +54,7 @@ const Main = () => {
           <Link
             className={styles.group}
             onClick={handleSubmit}
-            to={`/chat?name=${values[NAME]}$room=${values[ROOM]}`}
+            to={`/chat?name=${values[NAME]}&room=${values[ROOM]}`}
           >
             <button
               type="submit"
