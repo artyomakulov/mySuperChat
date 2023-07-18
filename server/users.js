@@ -12,7 +12,6 @@ const findUser = (user) => {
 };
 
 const addUser = (user) => {
-  console.log("users", users);
   const isExist = findUser(user);
 
   !isExist && users.push(user);

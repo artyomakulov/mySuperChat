@@ -15,13 +15,6 @@ const Main = () => {
     setVelues({ ...values, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    // const isDisabled = Object.values(values).some(value => !value)
-    // console.log('isDisabled', isDisabled)
-    // if(isDisabled) e.preventDefault()
-  };
-  // console.log('values', values)
-
   return (
     <div className={styles.wrap}>
       <div className={styles.container}>
@@ -53,7 +46,6 @@ const Main = () => {
           </div>
           <Link
             className={styles.group}
-            onClick={handleSubmit}
             to={`/chat?name=${values[NAME]}&room=${values[ROOM]}`}
           >
             <button
