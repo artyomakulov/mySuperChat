@@ -101,6 +101,12 @@
 
 .emoji img {
   vertical-align: middle;
+  transition: 0.3s;
+}
+
+.emoji img:hover,
+.emoji img:focus {
+  transform: scale(1.1)
 }
 
 .emojies {
@@ -109,3 +115,4 @@
   transform: translateX(-50%);
   bottom: 100%;
 }
+

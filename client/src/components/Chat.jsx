@@ -56,6 +56,20 @@ const Chat = () => {
   };
 
   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOpen && !event.target.closest(`.${styles.emoji}`)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     if (messagesRef.current) {
       messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
     }
@@ -86,7 +100,11 @@ const Chat = () => {
           />
         </div>
         <div className={styles.emoji}>
-          <img src={emojie} alt="emojie" onClick={() => setIsOpen(!isOpen)} />
+          <img
+            src={emojie}
+            alt="emojie"
+            onClick={() => setIsOpen(!isOpen)}
+          />
           {isOpen && (
             <div className={styles.emojies}>
               <EmojiPicker onEmojiClick={onEmojiClick} />
