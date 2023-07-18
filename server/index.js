@@ -22,8 +22,6 @@ io.on("connection", (socket) => {
 
     const { user, isExist } = addUser({ name, room });
 
-    console.log("isExist", isExist);
-
     const userMessage = isExist
       ? `${user.name}, here you go again`
       : `Hello ${user.name}`;
