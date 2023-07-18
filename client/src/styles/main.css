@@ -39,14 +39,6 @@ body {
     font-family: Rubik, Roboto, sans-serif;
   }
   
-button:enabled {
-  background-color: blue;
-}
-
-button:disabled {
-  background-color: red;
-}
-
   a {
     color: rgb(48, 43, 43);
     text-decoration: none;

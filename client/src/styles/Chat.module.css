@@ -32,13 +32,20 @@
 }
 
 .left {
-  background: rgb(253, 73, 73);
+  background-color: red;
   border-radius: 6px;
   font-size: 14px;
   padding: 10px;
   color: #fff;
   cursor: pointer;
+  transition: 0.3s;
 }
+
+.left:hover,
+.left:focus {
+  transform: scale(1.1)
+}
+
 
 .form {
   color: #fff;

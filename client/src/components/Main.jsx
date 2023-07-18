@@ -50,7 +50,7 @@ const Main = () => {
           >
             <button
               type="submit"
-              className={styles.button}
+              className={styles.buttonMain}
               disabled={values[NAME] === "" || values[ROOM] === ""}
             >
               Sign in

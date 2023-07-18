@@ -100,11 +100,7 @@ const Chat = () => {
           />
         </div>
         <div className={styles.emoji}>
-          <img
-            src={emojie}
-            alt="emojie"
-            onClick={() => setIsOpen(!isOpen)}
-          />
+          <img src={emojie} alt="emojie" onClick={() => setIsOpen(!isOpen)} />
           {isOpen && (
             <div className={styles.emojies}>
               <EmojiPicker onEmojiClick={onEmojiClick} />
