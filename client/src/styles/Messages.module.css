@@ -36,6 +36,20 @@
     padding-left: 10px;
   }
   
+  .admin {
+    align-items: flex-start;
+  }
+  
+  .admin .text {
+    background: #5c5858;
+    font-size: 12px;
+  }
+  
+  .admin .user {
+    padding-left: 10px;
+  }
+
+
   .me {
     align-items: flex-end;
   }

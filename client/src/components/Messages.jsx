@@ -8,7 +8,8 @@ const Messages = ({ messages, name }) => {
       {messages.map(({ user, message }, i) => {
         const itsMe =
           user.name.trim().toLowerCase() === name.trim().toLowerCase();
-        const className = itsMe ? styles.me : styles.user;
+          const isAdmin = user.name === "Admin";
+          const className = itsMe ? styles.me : isAdmin ? styles.admin : styles.user;
 
         return (
           <div key={i} className={`${styles.message} ${className}`}>
