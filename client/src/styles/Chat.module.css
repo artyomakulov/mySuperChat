@@ -6,6 +6,7 @@
   flex-direction: column;
   color: #fff;
   padding: 15px 0;
+  overflow: auto;
 }
 
 .header {
@@ -59,7 +60,7 @@
 
 .input input {
   width: 100%;
-  height: 100%;
+  height: 80px;
   background-color: rgb(51, 51, 51);
   font-size: 18px;
   font-weight: 500;
@@ -81,6 +82,7 @@
   font-size: 18px;
   background: rgb(35, 35, 35);
   padding: 32px;
+  overflow: auto;
 }
 
 .emoji {

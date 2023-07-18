@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import styles from "../styles/Chat.module.css";
@@ -16,6 +16,7 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [users, setUsers] = useState(0);
+  const messagesRef = useRef(null);
 
   useEffect(() => {
     const searchParams = Object.fromEntries(new URLSearchParams(search));
@@ -54,16 +55,22 @@ const Chat = () => {
     setMessage("");
   };
 
+  useEffect(() => {
+    if (messagesRef.current) {
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    }
+  }, [state]);
+
   return (
     <div className={styles.wrap}>
       <div className={styles.header}>
         <div className={styles.title}>{params.room}</div>
-        <div className={styles.users}>{users} users in this room</div>
+        <div className={styles.users}>{users} user(s) in this room</div>
         <button className={styles.left} onClick={leftRoom}>
-          left room
+          Left room
         </button>
       </div>
-      <div className={styles.messages}>
+      <div className={styles.messages} ref={messagesRef}>
         <Messages messages={state} name={params.name} />
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -73,7 +80,6 @@ const Chat = () => {
             name="message"
             placeholder="your message"
             value={message}
-            // className={styles.input}
             onChange={handleChange}
             autoComplete="off"
             required
@@ -88,7 +94,7 @@ const Chat = () => {
           )}
         </div>
         <div className={styles.button}>
-          <input type="submit" onSubmit={handleSubmit} value="send message" />
+          <input type="submit" value="Send message" />
         </div>
       </form>
     </div>
