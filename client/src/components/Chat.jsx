@@ -6,7 +6,7 @@ import emojie from "../images/emojie.svg";
 import EmojiPicker from "emoji-picker-react";
 import Messages from "./Messages";
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://mysuperchat.onrender.com");
 
 const Chat = () => {
   const [state, setState] = useState([]);
